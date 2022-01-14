@@ -34,7 +34,8 @@
 ├── README.md
 ├── logs
 ├── docs
+├── env
 ├── config.py
-├── tests
-    └── __init__.py
+└── tests
+
 ```
