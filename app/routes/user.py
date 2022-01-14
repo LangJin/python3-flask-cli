@@ -1,8 +1,11 @@
 # -*- coding:utf-8 -*-
 __author__ = 'LangJin'
-
+from flask import Blueprint
 from flask import request,current_app
-from . import authbp
+
+
+authbp = Blueprint("user", __name__,url_prefix="/user")
+
 
 @authbp.route("/test")
 def test():
@@ -13,8 +16,8 @@ def test():
 @authbp.route("/login",methods=["post"])
 def login():
     redata = request.get_json()
-    current_app.logger.debug('%s', "%s" % redata)
-    return {}
+    current_app.logger.debug("测试")
+    return {"msg":redata}
 
 
 @authbp.route("/regist")

@@ -3,7 +3,7 @@ __author__ = 'LangJin'
 from flask import Flask
 from config import config
 from .errors import errorbp
-from .routes import authbp
+from .routes.user import authbp
 
 
 
