@@ -21,25 +21,20 @@
 ## 设计框架
 框架结构
 ```
-├── README.md
-├── config.py
 ├── app
 │   ├── __init__.py
 │   ├── utils
 │   │   ├── __init__.py
-│   │   ├── code.py
-│   │   ├── func.py
-│   │   └── utils.py
-│   ├── resources
-│   │   ├── __init__.py
-│   │   └── hello.py
+│   │   └── tools.py
 │   └── routes
 │       ├── __init__.py
-│       └── v1.py
+│       └── user.py
 ├── manager.py
 ├── requirements.txt
-└── tests
+├── README.md
+├── logs
+├── docs
+├── config.py
+├── tests
     └── __init__.py
 ```
-
-
