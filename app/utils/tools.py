@@ -2,6 +2,7 @@
 __author__ = 'LangJin'
 import pymysql
 from redis import StrictRedis
+from flask import current_app
 import json
 
 class Db:
@@ -35,6 +36,7 @@ class Db:
                 results.append(row)
         except Exception as e:
             results = "%s" % e
+            current_app.logger.exception('%s', e)
         finally:
             cursor.close()
             db.close()  # 关闭连接
@@ -55,6 +57,7 @@ class Db:
         except Exception as e:
             db.rollback()
             res = "%s" % e
+            current_app.logger.exception('%s', e)
         finally:
             cursor.close()
             db.close()
