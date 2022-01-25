@@ -1,9 +1,11 @@
 # -*- coding:utf-8 -*-
 __author__ = 'LangJin'
+import code
 from flask import Blueprint
 from flask import request
 from app.utils import tools
 from config import Config
+from app.utils.func import Parse,resultMsg
 
 authbp = Blueprint("user", __name__,url_prefix="/auth")
 
@@ -24,23 +26,30 @@ def login():
     body = request.get_json()
     username = body.get("username")
     password = body.get("password")
-    dbres =  db.query("select * from t_system_user where username = '{}';".format(username))
-    if len(dbres) == 1:
-        if password == dbres[0].get("password"):
-            return {"code":1,"msg":"登录成功！","data":{"token":"sdkjfsedkjfsel;kfsekjfwsek;jfwsekfj","userInfo":{
-                "userId": "1",
-                "userName": "Administrator",
-                "dashboard": "0",
-                "role": [
-                    "SA",
-                    "admin",
-                    "Auditor"
-                ]
-            }}}
+    parse = Parse()
+    parse.parseRule(value=username,valueName="username",required=True)
+    parse.parseRule(value=password,valueName="password",required=True)
+    res =  parse.checkRule()
+    if res == True:
+        dbres =  db.query("select * from t_system_user where username = '{}';".format(username))
+        if len(dbres) == 1:
+            if password == dbres[0].get("password"):
+                return {"code":1,"msg":"登录成功！","data":{"token":"sdkjfsedkjfsel;kfsekjfwsek;jfwsekfj","userInfo":{
+                    "userId": "1",
+                    "userName": "Administrator",
+                    "dashboard": "0",
+                    "role": [
+                        "SA",
+                        "admin",
+                        "Auditor"
+                    ]
+                }}}
+            else:
+                return resultMsg(msg="密码错误",code=403)
         else:
-            return {"code":0,"msg":"密码错误！"}
+            return resultMsg(msg="账号不存在",code=403)
     else:
-        return {"code":0,"msg":"账号不存在"}
+        return res
 
 
 @authbp.route("/regist")
