@@ -3,10 +3,12 @@ __author__ = 'liuyun'
 __date__ = "2022-2-28"
 __doc__ = "数据库连接池和redis连接池的实现"
 import pymysql
+from logger import Logger
 from dbutils.pooled_db import PooledDB
 from config import flaskConfig
 
 
+logger = Logger()
 pool = PooledDB(
     creator=pymysql,  # 使用链接数据库的模块
     maxconnections=1000,  # 连接池允许的最大连接数，0和None表示不限制连接数
@@ -43,35 +45,37 @@ class MySQLDB:
         self.cursor.close()
         self.conn.close()
 
-    def query(self,sql='',kwargs={}):
+    def query(self,sql='',kwargs=()):
         '''
             用法：query('select * from t_user;')\n
             说明：查询数据库工具,返回查询结果
         '''
         try:
-            self.cursor.execute(sql,**kwargs)  # 执行sql语句
+            self.cursor.execute(sql,kwargs)  # 执行sql语句
             descs = []
             for desc in self.cursor.description:
                 descs.append(desc[0])
             results = self.cursor.fetchall()
         except Exception as e:
-            results = "%s" % e
+            logger.error(e)
+            results = False
         finally:
             self.close_conn()
             return results
 
 
-    def commit(self,sql="",kwargs={}):
+    def commit(self,sql="",kwargs=()):
         '''
             用法：commit('insert into t_user (id,username) values (1,'张三');')\n
             说明：更改数据库工具，支持插入、修改、删除
         '''
         try:
-            self.cursor.execute(sql,**kwargs)
+            self.cursor.execute(sql,kwargs)
             self.conn.commit()
             results = True
         except Exception as e:
-            results = "%s" % e
+            logger.error(e)
+            results = False
             self.conn.rollback()
         finally:
             self.close_conn()

@@ -6,7 +6,6 @@ from .errors import errorbp
 from .routes.auth import authbp
 
 
-
 def create_app():
     '''
     工厂方法

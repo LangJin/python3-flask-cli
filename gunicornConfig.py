@@ -12,6 +12,7 @@ pidfile = "logs/gunicorn.pid"
 accesslog = "logs/access.log"
 errorlog = "logs/debug.log"
 daemon = True
+access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" "%({X-Real-IP}i)s"'
 
 # 启动的进程数
 workers = multiprocessing.cpu_count()
