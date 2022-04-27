@@ -1,13 +1,5 @@
-click==8.0.3
-colorama==0.4.4
-Deprecated==1.2.13
-Flask==2.0.2
-itsdangerous==2.0.1
-Jinja2==3.0.3
-MarkupSafe==2.0.1
-packaging==21.3
+DBUtils==3.0.2
+Flask==2.1.1
+loguru==0.6.0
 PyMySQL==1.0.2
-pyparsing==3.0.6
-redis==4.1.0
-Werkzeug==2.0.2
-wrapt==1.13.3
+redis==4.2.2
