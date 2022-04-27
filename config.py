@@ -1,27 +1,54 @@
-from distutils.command.config import config
+# -*- coding:utf-8 -*-
+__author__ = 'LangJin'
+__date__ = "2022-2-28"
+__doc__ = "flask配置文件"
 
 
 class Config:
     DEBUG = False
+    JSON_AS_ASCII = False #json 中文支持
+    BABEL_DEFAULT_LOCALE = 'zh'
+    SECRET_KEY = "cd2e4fc86aa568e7d735a7c8235607ff"    # SESSION配置
     MAX_CONTENT_LENGTH = 20 * 1024 * 1024  # 2MB
-    MYSQL_HOST = "127.0.0.1"
-    MYSQL_PORT = 3306
-    MYSQL_USER = "root"
-    MYSQL_PASSWORD = "123456"
-    MYSQL_DB_NAME = "ljtest"
-    REDIS_HOST = ""
-    REDIS_PORT = ""
-    REDIS_PASSWORD = ""
 
-class DevelopConfig(config):
+
+class DevelopConfig(Config):
     DEBUG = True
+    MySQLConfig = {
+        "host": "119.45.233.102",
+        "port": 3306,
+        "user": "root",
+        "password": "EIWQotcukX!9hOVilQygBUfrc0TjqlVA",
+        "db": "ljtestdb"
+    }
+    REDISConfig = {
+        "host": "119.45.233.102",
+        "port": 6379,
+        "password": "EIWQotcukX!9hOVilQygBUfrc0TjqlVA",
+        "db": 0
+    }
 
 
-class ProductionConfig(config):
-    pass
+class ProductionConfig(Config):
+    MySQLConfig = {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "root",
+        "password": "123456",
+        "db": "ljtest"
+    }
+    REDISConfig = {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "password": "123456",
+        "db": 0
+    }
+
 
 
 config = {
     "DevelopConfig": DevelopConfig,
     "ProductionConfig": ProductionConfig
     }
+
+flaskConfig = config.get("DevelopConfig")

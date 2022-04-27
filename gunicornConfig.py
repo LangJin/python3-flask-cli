@@ -8,9 +8,9 @@ import multiprocessing
 # debug = True
 loglevel = 'debug'
 bind = "0.0.0.0:2333"
-pidfile = "log/gunicorn.pid"
-accesslog = "log/access.log"
-errorlog = "log/debug.log"
+pidfile = "logs/gunicorn.pid"
+accesslog = "logs/access.log"
+errorlog = "logs/debug.log"
 daemon = True
 
 # 启动的进程数

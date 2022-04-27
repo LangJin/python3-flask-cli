@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+__author__ = 'LangJin'
 from flask import Blueprint,current_app
 errorbp = Blueprint("errorbp",__name__)
 
