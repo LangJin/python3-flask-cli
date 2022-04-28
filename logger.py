@@ -5,7 +5,7 @@ from loguru import logger
 import time
 
 
-class SetLog(object):
+class SetLogging(object):
     def __init__(self,file=f"logs/debug{time.strftime('%Y-%m-%d')}.log"):
         self.file = file
         """创建日志器"""
@@ -56,7 +56,7 @@ class SetLog(object):
 
 
 
-class Logger(object):
+class SetLoguru(object):
     log = logger
 
     def __init__(self):
@@ -83,3 +83,7 @@ class Logger(object):
     
     def exception(self, *args, **kwargs):
         return self.log.exception(*args, **kwargs)
+
+
+logs = SetLoguru()
+# logs = SetLogging().get_logger()

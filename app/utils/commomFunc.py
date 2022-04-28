@@ -8,10 +8,9 @@ import json
 import time
 import xmltodict
 from config import flaskConfig
-from logger import Logger
+from logger import logs as logger
 
 
-logger = Logger()
 
 def create_token(userInfo):
     """

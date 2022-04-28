@@ -3,12 +3,12 @@ __author__ = 'liuyun'
 __date__ = "2022-2-28"
 __doc__ = "数据库连接池和redis连接池的实现"
 import pymysql
-from logger import Logger
+from logger import logs as logger
 from dbutils.pooled_db import PooledDB
 from config import flaskConfig
 
 
-logger = Logger()
+
 pool = PooledDB(
     creator=pymysql,  # 使用链接数据库的模块
     maxconnections=1000,  # 连接池允许的最大连接数，0和None表示不限制连接数

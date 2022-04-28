@@ -5,10 +5,8 @@ __doc__ = "数据库连接池和redis连接池的实现"
 import json
 from redis import StrictRedis
 from config import flaskConfig
-from logger import Logger
+from logger import logs as logger
 
-
-logger = Logger()
 
 class RedisDb:
     '''

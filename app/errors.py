@@ -1,12 +1,11 @@
 # -*- coding:utf-8 -*-
 __author__ = 'LangJin'
 from flask import Blueprint
-from logger import Logger
+from logger import logs as logger
 from app.utils.responseFunc import resultMsg
 errorbp = Blueprint("errorbp",__name__)
 
 
-logger = Logger()
 
 @errorbp.app_errorhandler(400)
 def bad_request(e):

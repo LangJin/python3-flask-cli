@@ -1,2 +1,2 @@
-# source ./env/bin/activate
+source ./env/bin/activate
 gunicorn main:app -c gunicornConfig.py

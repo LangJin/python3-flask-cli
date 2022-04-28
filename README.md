@@ -14,9 +14,7 @@
     ```
 3. 安装第三方的包
     ```cmd
-    pip install flask
-    pip install pymysql
-    pip install redis
+    pip install -r requirements.txt
     ```
 ## 设计框架
 框架结构
@@ -39,3 +37,11 @@
 └── tests
 
 ```
+
+## 已完成功能
+- 基本的登录注册的demo实现
+- MySQL的方法类的封装
+- redis的方法类的封装
+- 日志的封装
+- token的生成和校验
+- 正则表达式的参数校验的类的封装
