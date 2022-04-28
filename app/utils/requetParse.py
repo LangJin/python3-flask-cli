@@ -8,8 +8,14 @@ import re
 
 class Parse:
     """
-    参数校验的类
+    @功能    :正则表达式参数校验
+    @参数    :kwargs
+    @返回值  :True
+    @时间    :2022/04/28 18:29:08
+    @作者    :浪晋
+    @版本    :1.0
     """
+    
     def __init__(self):
         self.data = []
     def parseRule(self,**kwargs):

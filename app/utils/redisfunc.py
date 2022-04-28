@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-__author__ = 'liuyun'
+__author__ = '浪晋'
 __date__ = "2022-2-28"
 __doc__ = "数据库连接池和redis连接池的实现"
 import json
