@@ -18,9 +18,9 @@ class RedisDb:
         self.db_config = flaskConfig.REDISConfig
         self.redis = StrictRedis(**self.db_config, max_connections=2000)
         
-    def set_value(self,k,value, ex=60*60*30):
+    def set_value(self,k,value, ex=24*60*60):
         '''
-            设置用户缓存，并返回结果
+            设置用户缓存
         '''
         if type(value) is dict:
             value = json.dumps(value)

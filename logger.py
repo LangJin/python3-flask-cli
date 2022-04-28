@@ -6,7 +6,7 @@ import time
 
 
 class SetLog(object):
-    def __init__(self,file='logs/debug.log'):
+    def __init__(self,file=f"logs/debug{time.strftime('%Y-%m-%d')}.log"):
         self.file = file
         """创建日志器"""
         self.log = logging.getLogger()
@@ -60,8 +60,9 @@ class Logger(object):
     log = logger
 
     def __init__(self):
-        logger.add(f"logs/debug{time.strftime('%Y-%m-%d')}.log",rotation="00:00",encoding="utf-8",enqueue=True,retention="7 days")
-
+        # enqueue开启多线程写入，会和gunicorn冲突，导致gunicorn无法正常启动，无限重启
+        logger.add(f"logs/debug{time.strftime('%Y-%m-%d')}.log",rotation="00:00",encoding="utf-8",enqueue=False,retention="7 days")
+    
     def trace(self, *args, **kwargs):
         return self.log.trace(*args, **kwargs)
 

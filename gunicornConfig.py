@@ -1,4 +1,5 @@
 import os
+import time
 import multiprocessing
 from gevent import monkey
 monkey.patch_all()
@@ -14,6 +15,6 @@ x_forwarded_for_header = 'X-FORWARDED-FOR'
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" "%({X-Real-IP}i)s"'
 pidfile = "logs/gunicorn.pid"
 accesslog = "logs/access.log"
-errorlog = "logs/debug.log"
+errorlog = f"logs/debug{time.strftime('%Y-%m-%d')}.log"
 
 
