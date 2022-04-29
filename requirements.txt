@@ -3,6 +3,7 @@ Flask==2.1.1
 loguru==0.6.0
 PyMySQL==1.0.2
 redis==4.2.2
+xmltodict==0.12.0
 authlib==1.0.1
-gunicorn==19.9.0
-gevent==1.4.0
+gunicorn==20.1.0
+gevent==21.12.0
