@@ -52,9 +52,6 @@ class MySQLDB:
         '''
         try:
             self.cursor.execute(sql,kwargs)  # 执行sql语句
-            descs = []
-            for desc in self.cursor.description:
-                descs.append(desc[0])
             results = self.cursor.fetchall()
         except Exception as e:
             logger.error(e)
