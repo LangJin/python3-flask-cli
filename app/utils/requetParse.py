@@ -51,9 +51,10 @@ class Parse:
             if required == True:
                 if value in (None,""):
                     return "{}不能为空".format(valueName)
-            if regexp  not in (None,""):
-                result = re.match(regexp,str(value))
-                if result == None:
-                    return "{}要求{}".format(valueName,valueRule)
+            if value not in (None,""):
+                if regexp  not in (None,""):
+                    result = re.match(regexp,str(value))
+                    if result == None:
+                        return "{}要求{}".format(valueName,valueRule)
         return True
 
