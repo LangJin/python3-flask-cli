@@ -6,7 +6,7 @@ __doc__ = "蓝图定义和钩子"
 import json
 from flask import Blueprint,request,g
 from app.utils.commomFunc import verify_token
-from app.utils.redisfunc import RedisDb as redis
+from app.utils.redisFunc import RedisDb as redis
 from app.utils.responseFunc import resultMsg
 
 

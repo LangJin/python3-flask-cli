@@ -2,8 +2,8 @@
 __author__ = 'LangJin'
 from . import authbp,userbp
 from flask import request,g
-from app.utils.dbfunc import MySQLDB as mysql
-from app.utils.redisfunc import RedisDb as redis
+from app.utils.dbFunc import MySQLDB as mysql
+from app.utils.redisFunc import RedisDb as redis
 from app.utils.responseFunc import resultMsg
 from app.utils.requetParse import Parse
 from app.utils.commomFunc import create_token
