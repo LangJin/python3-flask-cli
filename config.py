@@ -24,9 +24,9 @@ class DevelopConfig(Config):
         'charset': 'utf8mb4'
     }
     REDISConfig = {
-        "host": "119.45.233.102",
+        "host": "127.0.0.01",
         "port": 6379,
-        "password": "EIWQotcukX!9hOVilQygBUfrc0TjqlVA",
+        "password": "123456",
         "db": 0
     }
 
