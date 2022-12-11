@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 __author__ = 'LangJin'
-from . import authbp,userbp
-from flask import request,g
+from flask import Blueprint,request,g
 from app.utils.dbFunc import MySQLDB as mysql
 from app.utils.redisFunc import RedisDb as redis
 from app.utils.responseFunc import resultMsg
@@ -9,9 +8,7 @@ from app.utils.requetParse import Parse
 from app.utils.commomFunc import create_token
 
 
-@userbp.route("/test", methods=["get"])
-def test():
-    return resultMsg(code=1,msg="success",data=g.userInfo)
+authbp = Blueprint("demo", __name__,url_prefix="/demo")
 
 
 @authbp.route('/regist', methods=['POST'])

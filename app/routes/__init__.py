@@ -4,17 +4,14 @@ __date__ = "2022-2-28"
 __doc__ = "蓝图定义和钩子"
 
 import json
-from flask import Blueprint,request,g
+from flask import request,g
 from app.utils.commomFunc import verify_token
 from app.utils.redisFunc import RedisDb as redis
 from app.utils.responseFunc import resultMsg
+from app.routes.system import systembp
 
 
-authbp = Blueprint("demo", __name__,url_prefix="/demo")
-userbp = Blueprint("user", __name__,url_prefix="/user")
-
-
-@userbp.before_request
+@systembp.before_request
 def before_request():
     token = request.headers.get("token")
     if token in (None,""):

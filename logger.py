@@ -85,5 +85,5 @@ class SetLoguru(object):
         return self.log.exception(*args, **kwargs)
 
 
-logs = SetLoguru()
-# logs = SetLogging().get_logger()
+# logs = SetLoguru()
+logs = SetLogging().get_logger()

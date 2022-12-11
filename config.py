@@ -16,11 +16,12 @@ class DevelopConfig(Config):
     DEBUG = True
     SERVER_NAME = "0.0.0.0:3456"
     MySQLConfig = {
-        "host": "119.45.233.102",
+        "host": "127.0.0.1",
         "port": 3306,
         "user": "root",
-        "password": "EIWQotcukX!9hOVilQygBUfrc0TjqlVA",
-        "db": "ljtestdb"
+        "password": "123456",
+        "db": "ljtestdb",
+        'charset': 'utf8mb4'
     }
     REDISConfig = {
         "host": "119.45.233.102",
@@ -37,7 +38,8 @@ class ProductionConfig(Config):
         "port": 3306,
         "user": "root",
         "password": "123456",
-        "db": "ljtest"
+        "db": "ljtest",
+        'charset': 'utf8mb4'
     }
     REDISConfig = {
         "host": "127.0.0.1",
