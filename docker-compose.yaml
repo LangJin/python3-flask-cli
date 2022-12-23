@@ -1,0 +1,40 @@
+version: "3"
+services:
+  app:
+    build: .
+    image: app:1.0
+    container_name: app
+    ports:
+      - "3456:3456"
+    volumes:
+      - /home/app:/home/app
+    networks:
+      - app-net
+    external_links:
+      - redis
+      - mysql
+  redis:
+    image: redis:6.0
+    container_name: redis
+    command: --requirepass 123456
+    ports:
+      - "6479:6379"
+    volumes:
+      - "/home/redis/data:/var/lib/redis"
+    networks:
+      - app-net
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "3406:3306"
+    volumes:
+      - /home/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: ljtest
+    networks:
+      - app-net
+networks:
+  app-net:
+    external: true

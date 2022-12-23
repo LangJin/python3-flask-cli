@@ -34,7 +34,7 @@ class DevelopConfig(Config):
 class ProductionConfig(Config):
     SERVER_NAME = "0.0.0.0:3456"
     MySQLConfig = {
-        "host": "127.0.0.1",
+        "host": "mysql",
         "port": 3306,
         "user": "root",
         "password": "123456",
@@ -42,7 +42,7 @@ class ProductionConfig(Config):
         'charset': 'utf8mb4'
     }
     REDISConfig = {
-        "host": "127.0.0.1",
+        "host": "redis",
         "port": 6379,
         "password": "123456",
         "db": 0
