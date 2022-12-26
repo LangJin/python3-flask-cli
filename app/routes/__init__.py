@@ -8,10 +8,10 @@ from flask import request,g
 from app.utils.commomFunc import verify_token
 from app.utils.redisFunc import RedisDb as redis
 from app.utils.responseFunc import resultMsg
-from app.routes.demo import demobp
+from app.routes.views import views
 
 
-@demobp.before_request
+@views.before_request
 def before_request():
     token = request.headers.get("token")
     if token in (None,""):

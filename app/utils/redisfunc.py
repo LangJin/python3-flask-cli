@@ -5,7 +5,6 @@ __doc__ = "数据库连接池和redis连接池的实现"
 import json
 from redis import StrictRedis
 from config import flaskConfig
-from logger import logs as logger
 
 
 class RedisDb:
@@ -25,7 +24,7 @@ class RedisDb:
         try:
             results = self.redis.set(k, value, ex)  # 返回True
         except Exception as e:
-            logger.error(e)
+            # logger.error(e)
             results = False
         finally:
             return results
@@ -38,7 +37,7 @@ class RedisDb:
         try:
             results = self.redis.delete(k)  # 返回1
         except Exception as e:
-            logger.error(e)
+            # logger.error(e)
             results = False
         finally:
             self.redis.close()
@@ -50,7 +49,7 @@ class RedisDb:
             results = self.redis.get(k)
             results = results if results is None else str(results, encoding='utf-8')
         except Exception as e:
-            logger.error(e)
+            # logger.error(e)
             results = False
         finally:
             return results

@@ -8,7 +8,6 @@ import json
 import time
 import xmltodict
 from config import flaskConfig
-from logger import logs as logger
 
 
 
@@ -29,7 +28,7 @@ def create_token(userInfo):
         token = jwt.encode(header=header, payload=data, key=key)
         return token.decode('utf-8')
     except Exception as e:
-        logger.error(e)
+        # logger.error(e)
         return False
 
 
@@ -47,7 +46,7 @@ def verify_token(token):
         userInfo = jwt.decode(token,key)
         return userInfo
     except Exception as e:
-        logger.error(e)
+        # logger.error(e)
         return False
 
 
@@ -66,7 +65,7 @@ def xml_to_json(xml_str):
         json_dict = json.loads(json_str)
         return json_dict
     except Exception as e:
-        logger.error(e)
+        # logger.error(e)
         return False
 
 
@@ -86,5 +85,5 @@ def encry(k):
         m.update(k.encode('utf-8'))
         return m.hexdigest()
     except Exception as e:
-        logger.error(e)
+        # logger.error(e)
         return False

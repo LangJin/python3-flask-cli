@@ -14,7 +14,7 @@ class Config:
 
 class DevelopConfig(Config):
     DEBUG = True
-    SERVER_NAME = "0.0.0.0:3456"
+    PORT = 3456
     MySQLConfig = {
         "host": "127.0.0.1",
         "port": 3306,
@@ -32,7 +32,6 @@ class DevelopConfig(Config):
 
 
 class ProductionConfig(Config):
-    SERVER_NAME = "0.0.0.0:3456"
     MySQLConfig = {
         "host": "mysql",
         "port": 3306,
