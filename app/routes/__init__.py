@@ -11,7 +11,7 @@ from app.utils.responseFunc import resultMsg
 from app.routes.views import views
 
 
-@views.before_request
+# @views.before_request
 def before_request():
     token = request.headers.get("token")
     if token in (None,""):

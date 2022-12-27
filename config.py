@@ -14,7 +14,6 @@ class Config:
 
 class DevelopConfig(Config):
     DEBUG = True
-    PORT = 3456
     MySQLConfig = {
         "host": "127.0.0.1",
         "port": 3306,
